@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.cardsapplication.controller.MainMenuController">
+   <children>
+      <ButtonBar layoutX="368.0" layoutY="76.0" prefHeight="40.0" prefWidth="8.0" />
+      <Button fx:id="playButton" layoutX="263.0" layoutY="79.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="173.0" text="Play" textAlignment="CENTER" />
+      <Button fx:id="editCollectionsButton" layoutX="263.0" layoutY="207.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="174.0" text="Edit collections" />
+   </children>
+</AnchorPane>
