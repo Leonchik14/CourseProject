@@ -27,6 +27,6 @@
             <Font name="Berlin Sans FB" size="17.0" />
          </font>
       </RadioButton>
-      <StackPane fx:id="cardContentContainer" layoutX="132.0" layoutY="65.0" prefHeight="182.0" prefWidth="435.0" style="-fx-background-color: #7A9BCA;" />
+      <StackPane fx:id="cardContentContainer" layoutX="132.0" layoutY="65.0" prefHeight="182.0" prefWidth="435.0" style="-fx-background-color: #7A9BCA; -fx-background-radius: 10;" />
     </children>
 </AnchorPane>
