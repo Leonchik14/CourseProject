@@ -85,7 +85,7 @@ public class GameSettingsController {
         gameModeToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (gameModeToggleGroup.getSelectedToggle() != null) {
                 RadioButton selectedRadioButton = (RadioButton) gameModeToggleGroup.getSelectedToggle();
-                String toggleId = selectedRadioButton.getText(); // Получаем текст выбранной кнопки
+                String toggleId = selectedRadioButton.getText();
                 switch (toggleId) {
                     case "Common":
                         gameModeName = "Common";
@@ -109,24 +109,28 @@ public class GameSettingsController {
                 collectionAnim.PlayAnim();
                 return;
             }
+            if (gameCollection.cards.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Notification");
+                alert.setHeaderText("Error starting game");
+                alert.setContentText("Selected collection is empty");
+                alert.showAndWait();
+                return;
+            }
             FXMLLoader fxmlLoader = new FXMLLoader(CardsApplication.class.getResource("game-process-view.fxml"));
             try {
-                // Сначала загружаем view
                 Parent view = fxmlLoader.load();
 
-                // Теперь получаем контроллер и передаем в него данные
                 GameProcessController controller = fxmlLoader.getController();
-                controller.setGameCollection(gameCollection);
-                controller.setGameMode(gameModeName);
+                controller.SetupGame(gameModeName, gameCollection);
 
-                // Теперь устанавливаем сцену
                 Scene scene = new Scene(view, 700, 400);
                 Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 primaryStage.setTitle("CardsApplication");
                 primaryStage.setScene(scene);
                 primaryStage.show();
             } catch (IOException e) {
-                e.printStackTrace(); // Лучше здесь использовать логгирование или другие методы обработки ошибок
+                e.printStackTrace();
             }
         });
         returnButton.setOnMouseClicked(event -> SceneSwitcher.SwitchScene(event, "main-menu-view.fxml"));

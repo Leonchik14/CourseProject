@@ -18,12 +18,15 @@ public class MainMenuController {
     private Button editCollectionsButton;
 
     @FXML
+    private Button statisticsButton;
+
+    @FXML
     private Button playButton;
 
     @FXML
     void initialize() {
         playButton.setOnAction(event -> SceneSwitcher.SwitchScene(event, "game-settings-view.fxml"));
-
+        statisticsButton.setOnAction(event -> SceneSwitcher.SwitchScene(event, "collection-statistics-view.fxml"));
         editCollectionsButton.setOnAction(event -> SceneSwitcher.SwitchScene(event, "collection-edit-view.fxml"));
     }
 

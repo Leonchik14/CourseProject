@@ -16,5 +16,70 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Label layoutX="290.0" layoutY="62.0" text="Session results:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="116.0" text="Wrong" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="323.0" layoutY="116.0" text="Mostly" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="497.0" layoutY="116.0" text="Right" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="200.0" text="Result" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="285.0" layoutY="200.0" text="Previous result" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="510.0" layoutY="200.0" text="Difference" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="resultLabel" layoutX="99.0" layoutY="238.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="differenceLabel" layoutX="535.0" layoutY="238.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="previousLabel" layoutX="330.0" layoutY="238.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mostlyAnsLabel" layoutX="332.0" layoutY="153.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="wrongAnsLabel" layoutX="167.0" layoutY="153.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="rightAnsLabel" layoutX="501.0" layoutY="153.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

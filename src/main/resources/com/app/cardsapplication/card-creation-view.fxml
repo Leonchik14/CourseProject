@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.cardsapplication.controller.CardCreationController">
     <children>
         <ButtonBar layoutX="368.0" layoutY="76.0" prefHeight="40.0" prefWidth="8.0" />
-        <Button fx:id="createButton" layoutX="281.0" layoutY="338.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="138.0" text="Create" textAlignment="CENTER" />
+        <Button fx:id="createButton" layoutX="281.0" layoutY="338.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="138.0" text="Accept" textAlignment="CENTER" />
       <ImageView fx:id="returnButton" fitHeight="34.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/back-arrow.png" />
@@ -39,5 +39,7 @@
       <Button fx:id="chooseFileBack" layoutX="443.0" layoutY="242.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="118.0" text="Choose file" />
       <TextField fx:id="textBack" layoutX="403.0" layoutY="103.0" prefHeight="75.0" prefWidth="199.0" />
       <Line endX="30.000030517578125" endY="236.60003662109375" layoutX="318.0" layoutY="89.0" startX="30.000030517578125" startY="-40.5999870300293" stroke="WHITE" />
+      <Label fx:id="frontFilePath" layoutX="95.0" layoutY="215.0" prefHeight="18.0" prefWidth="199.0" textFill="WHITE" />
+      <Label fx:id="backFilePath" layoutX="402.0" layoutY="215.0" prefHeight="18.0" prefWidth="199.0" textFill="WHITE" />
     </children>
 </AnchorPane>

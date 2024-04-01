@@ -31,7 +31,6 @@ public class CollectionEditingController {
     @FXML
     private Button createButton;
 
-
     @FXML
     private ImageView returnButton;
 
@@ -62,6 +61,7 @@ public class CollectionEditingController {
                             setGraphic(null);
                         } else {
                             setText("Collection name: " + collection.getName());
+                            setStyle("-fx-font-size: 20px;");
                         }
                     }
                 };

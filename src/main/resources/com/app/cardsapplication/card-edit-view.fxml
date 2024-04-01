@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.cardsapplication.controller.CardEditingController">
     <children>
         <ButtonBar layoutX="368.0" layoutY="76.0" prefHeight="40.0" prefWidth="8.0" />
-        <Button fx:id="addCardButton" layoutX="296.0" layoutY="336.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Add card" />
+        <Button fx:id="addCardButton" layoutX="585.0" layoutY="49.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Create card" />
       <Label layoutX="250.0" layoutY="24.0" text="Choose card to edit" textFill="#fcfafa">
          <font>
             <Font size="23.0" />
@@ -30,5 +30,7 @@
          </image>
       </ImageView>
       <ListView fx:id="cardsList" layoutX="92.0" layoutY="95.0" prefHeight="210.0" prefWidth="515.0" />
+      <Button fx:id="deleteButton" layoutX="368.0" layoutY="330.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Delete card" />
+      <Button fx:id="editButton" layoutX="218.0" layoutY="330.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Edit card" />
     </children>
 </AnchorPane>

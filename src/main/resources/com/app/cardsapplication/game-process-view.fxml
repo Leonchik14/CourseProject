@@ -10,10 +10,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.cardsapplication.controller.GameProcessController">
     <children>
         <ButtonBar layoutX="368.0" layoutY="76.0" prefHeight="40.0" prefWidth="8.0" />
-        <Button fx:id="previousCardButton" layoutX="34.0" layoutY="346.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="124.0" text="Prev" textAlignment="CENTER" />
-      <Button fx:id="nextCardButton" layoutX="541.0" layoutY="346.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="124.0" text="Next" textAlignment="CENTER" />
+      <Button fx:id="nextCardButton" layoutX="288.0" layoutY="339.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="124.0" text="Next" textAlignment="CENTER" />
       <Button fx:id="finishGameButton" layoutX="616.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Finish" textAlignment="CENTER" />
-      <RadioButton fx:id="wrongButton" layoutX="158.0" layoutY="282.0" mnemonicParsing="false" text="Wrong" textFill="WHITE">
+      <RadioButton fx:id="wrongButton" layoutX="158.0" layoutY="282.0" mnemonicParsing="false" selected="true" text="Wrong" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB" size="17.0" />
          </font>
@@ -28,6 +27,6 @@
             <Font name="Berlin Sans FB" size="17.0" />
          </font>
       </RadioButton>
-      <StackPane fx:id="cardContentContainer" layoutX="132.0" layoutY="65.0" prefHeight="182.0" prefWidth="435.0" />
+      <StackPane fx:id="cardContentContainer" layoutX="132.0" layoutY="65.0" prefHeight="182.0" prefWidth="435.0" style="-fx-background-color: #7A9BCA;" />
     </children>
 </AnchorPane>
