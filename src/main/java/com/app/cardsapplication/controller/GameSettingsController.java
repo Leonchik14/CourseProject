@@ -94,7 +94,7 @@ public class GameSettingsController {
                         gameModeName = "Random";
                         break;
                     case "Full coverage":
-                        gameModeName = "Full";
+                        gameModeName = "Full coverage";
                         break;
                 }
             }

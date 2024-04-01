@@ -39,7 +39,6 @@ public class GameProcessController {
 
     private boolean isFrontVisible;
 
-    private List<Boolean> answeredCards;
 
     private Integer wrong = 0;
 
@@ -66,9 +65,6 @@ public class GameProcessController {
     @FXML
     private Button nextCardButton;
 
-/*    @FXML
-    private Button previousCardButton;*/
-
     @FXML
     private RadioButton mostlyButton;
 
@@ -88,22 +84,23 @@ public class GameProcessController {
         isFrontVisible = true;
 
         answerToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null && !answeredCards.get(currentCardInd)) {
+            if (newValue != null) {
                 RadioButton selectedRadioButton = (RadioButton) newValue;
                 String toggleId = selectedRadioButton.getText();
                 switch (toggleId) {
                     case "Wrong":
                         updateScoreAction = () -> wrong++;
+                        isCorrect = false;
                         break;
                     case "Mostly":
                         updateScoreAction = () -> mostly++;
+                        isCorrect = true;
                         break;
                     case "Right":
                         updateScoreAction = () -> right++;
+                        isCorrect = true;
                         break;
                 }
-                // Отметить текущую карточку как отвеченную
-                answeredCards.set(currentCardInd, true);
             }
         });
 
@@ -111,45 +108,39 @@ public class GameProcessController {
             flipCard();
         });
 
-/*        previousCardButton.setOnAction(event -> {
-            updateScoreAction = () -> wrong++;
-            answerToggleGroup.selectToggle(wrongButton);
-            if (currentCardInd == 0) return;
-
-            --currentCardInd;
-            displayCard(gameCollection.cards.get(currentCardInd), true);
-            isFrontVisible = true;
-        });*/
 
         nextCardButton.setOnAction(event -> {
             updateScoreAction.run();
-            wrongButton.setSelected(true);
-            answerToggleGroup.selectToggle(wrongButton);
-            if (currentCardInd == gameCollection.cards.size() - 1) {
-                finishGameButton.fire();
-            }
+
             if (Objects.equals(gameMode, "Full coverage") && !isCorrect) {
                 gameCollection.cards.add(gameCollection.cards.get(currentCardInd));
             }
-            ++currentCardInd;
-            displayCard(gameCollection.cards.get(currentCardInd), true);
+
+            if (currentCardInd < gameCollection.cards.size() - 1) {
+                ++currentCardInd;
+            } else {
+                finishGameButton.fire();
+                return;
+            }
+
+            displayCard(gameCollection.cards.get(currentCardInd), isFrontVisible);
+
             updateScoreAction = () -> wrong++;
             isFrontVisible = true;
             isCorrect = false;
+
+            answerToggleGroup.selectToggle(wrongButton);
         });
 
         finishGameButton.setOnAction(event -> {
             updateScoreAction = () -> wrong++;
             FXMLLoader fxmlLoader = new FXMLLoader(CardsApplication.class.getResource("statistics-view.fxml"));
             try {
-                // Сначала загружаем view
                 Parent view = fxmlLoader.load();
 
-                // Теперь получаем контроллер и передаем в него данные
                 StatisticsController controller = fxmlLoader.getController();
                 controller.setStatistics(wrong, mostly,right, gameCollection, gameMode);
 
-                // Теперь устанавливаем сцену
                 Scene scene = new Scene(view, 700, 400);
                 Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 primaryStage.setTitle("CardsApplication");
@@ -170,28 +161,20 @@ public class GameProcessController {
                 textLabel.setTextFill(Color.WHITE);
                 cardContentContainer.getChildren().add(textLabel);
             } else {
-                if (card.getFrontFile().endsWith(".mp3")) {
-
+                ImageView imageView = null;
+                try {
+                    imageView = new ImageView(new Image(new FileInputStream(card.getFrontFile())));
+                    imageView.setFitWidth(435);
+                    imageView.setFitHeight(182);
+                    imageView.setPreserveRatio(true);
+                    cardContentContainer.getChildren().add(imageView);
+                } catch (Exception e) {
                     Label textLabel = new Label("File was corrupted or deleted");
                     textLabel.setFont(new Font("System", 18));
                     textLabel.setTextFill(Color.WHITE);
                     cardContentContainer.getChildren().add(textLabel);
                 }
-                else {
-                    ImageView imageView = null;
-                    try {
-                        imageView = new ImageView(new Image(new FileInputStream(card.getFrontFile())));
-                        imageView.setFitWidth(435);
-                        imageView.setFitHeight(182);
-                        imageView.setPreserveRatio(true);
-                    } catch (FileNotFoundException e) {
-                        Label textLabel = new Label("File was corrupted or deleted");
-                        textLabel.setFont(new Font("System", 18));
-                        textLabel.setTextFill(Color.WHITE);
-                        cardContentContainer.getChildren().add(textLabel);
-                    }
-                    cardContentContainer.getChildren().add(imageView);
-                }
+
             }
         }
         else{
@@ -201,26 +184,18 @@ public class GameProcessController {
                 textLabel.setTextFill(Color.WHITE);
                 cardContentContainer.getChildren().add(textLabel);
             } else {
-                if (card.getBackFile().endsWith(".mp3")) {
+                ImageView imageView = null;
+                try {
+                    imageView = new ImageView(new Image(new FileInputStream(card.getBackFile())));
+                    imageView.setFitWidth(435);
+                    imageView.setFitHeight(182);
+                    imageView.setPreserveRatio(true);
+                    cardContentContainer.getChildren().add(imageView);
+                } catch (Exception e) {
                     Label textLabel = new Label("File was corrupted or deleted");
                     textLabel.setFont(new Font("System", 18));
                     textLabel.setTextFill(Color.WHITE);
                     cardContentContainer.getChildren().add(textLabel);
-                }
-                else {
-                    ImageView imageView = null;
-                    try {
-                        imageView = new ImageView(new Image(new FileInputStream(card.getBackFile())));
-                        imageView.setFitWidth(435);
-                        imageView.setFitHeight(182);
-                        imageView.setPreserveRatio(true);
-                    } catch (FileNotFoundException e) {
-                        Label textLabel = new Label("File was corrupted or deleted");
-                        textLabel.setFont(new Font("System", 18));
-                        textLabel.setTextFill(Color.WHITE);
-                        cardContentContainer.getChildren().add(textLabel);
-                    }
-                    cardContentContainer.getChildren().add(imageView);
                 }
             }
         }
@@ -233,7 +208,6 @@ public class GameProcessController {
         stHide.setOnFinished(e -> {
             isFrontVisible = !isFrontVisible;
             displayCard(gameCollection.cards.get(currentCardInd), isFrontVisible);
-
             ScaleTransition stShow = new ScaleTransition(Duration.millis(300), cardContentContainer);
             stShow.setFromX(0.0);
             stShow.setToX(1.0);
@@ -245,11 +219,9 @@ public class GameProcessController {
     public void SetupGame(String mode, Collection collection) {
         this.gameCollection = collection;
         this.gameMode = mode;
-        answeredCards = new ArrayList<>(Collections.nCopies(gameCollection.cards.size(), false));
         if (!Objects.equals(gameMode, "Common")) {
             Collections.shuffle(gameCollection.cards);
         }
         displayCard(gameCollection.cards.get(currentCardInd), isFrontVisible);
-
     }
 }

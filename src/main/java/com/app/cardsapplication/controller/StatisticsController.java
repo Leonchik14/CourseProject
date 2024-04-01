@@ -90,7 +90,7 @@ public class StatisticsController {
                 .getCollection("statistics", Statistics.class)
                 .find(Filters.eq("collectionName", collection.getName()))
                 .first();
-        double progress = (double) (right * 2 + mostly) / (collection.cards.isEmpty() ? 1 : collection.cards.size()) * 100;
+        double progress = (double) (right * 2 + mostly) / (collection.cards.isEmpty() ? 1 : collection.cards.size() * 2) * 100;
         resultLabel.setText( String.format("%.2f",progress)+ "%");
         previousLabel.setText(String.format("%.2f",stat == null ? 0 : stat.progress)+ "%");
         differenceLabel.setText(String.format("%.2f",progress - (stat == null ? 0 : stat.progress)) + "%");
