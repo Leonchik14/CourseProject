@@ -19,7 +19,7 @@
             <Image url="@assets/back-arrow.png" />
          </image>
       </ImageView>
-      <Label layoutX="137.0" layoutY="14.0" prefHeight="34.0" prefWidth="462.0" text="Enter text in the field or choose photo or audio file" textFill="WHITE">
+      <Label layoutX="181.0" layoutY="14.0" prefHeight="34.0" prefWidth="338.0" text="Enter text in the field or choose image" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
