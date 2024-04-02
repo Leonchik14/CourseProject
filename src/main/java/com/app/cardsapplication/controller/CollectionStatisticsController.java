@@ -27,12 +27,9 @@ public class CollectionStatisticsController  {
     void initialize() {
         returnButton.setOnMouseClicked(event -> SceneSwitcher.SwitchScene(event, "main-menu-view.fxml"));
         ObservableList<Statistics> items = FXCollections.observableArrayList();
-
         List<Statistics> stats = MongoUtil.getDatabase().getCollection("statistics", Statistics.class).find().into(new ArrayList<>());
         items.addAll(stats);
-
         statsList.setItems(items);
-
 
         statsList.setCellFactory(new Callback<ListView<Statistics>, ListCell<Statistics>>() {
             @Override

@@ -9,46 +9,46 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.cardsapplication.controller.StatisticsController">
     <children>
         <ButtonBar layoutX="368.0" layoutY="76.0" prefHeight="40.0" prefWidth="8.0" />
-        <Button fx:id="restartGameButton" layoutX="27.0" layoutY="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Restart" />
-      <Button fx:id="mainMenuButton" layoutX="541.0" layoutY="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Main menu" />
+        <Button fx:id="restartGameButton" layoutX="27.0" layoutY="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" stylesheets="@assets/buttonStyle.css" text="Restart" />
+      <Button fx:id="mainMenuButton" layoutX="541.0" layoutY="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" stylesheets="@assets/buttonStyle.css" text="Main menu" />
       <Label layoutX="304.0" layoutY="14.0" text="Statistics" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="Berlin Sans FB" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="290.0" layoutY="62.0" text="Session results:" textFill="WHITE">
+      <Label layoutX="294.0" layoutY="65.0" text="Session results:" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
       <Label layoutX="157.0" layoutY="116.0" text="Wrong" textFill="WHITE">
          <font>
-            <Font size="17.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
          </font>
       </Label>
       <Label layoutX="323.0" layoutY="116.0" text="Mostly" textFill="WHITE">
          <font>
-            <Font size="17.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
          </font>
       </Label>
       <Label layoutX="497.0" layoutY="116.0" text="Right" textFill="WHITE">
          <font>
-            <Font size="17.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
          </font>
       </Label>
       <Label layoutX="92.0" layoutY="200.0" text="Result" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Label>
       <Label layoutX="285.0" layoutY="200.0" text="Previous result" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="510.0" layoutY="200.0" text="Difference" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
          </font>
       </Label>
       <Label fx:id="resultLabel" layoutX="99.0" layoutY="238.0" text="Label" textFill="WHITE">
@@ -61,7 +61,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="previousLabel" layoutX="330.0" layoutY="238.0" text="Label" textFill="WHITE">
+      <Label fx:id="previousLabel" layoutX="328.0" layoutY="238.0" text="Label" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

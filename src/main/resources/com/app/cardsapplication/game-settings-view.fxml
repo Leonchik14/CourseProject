@@ -13,15 +13,18 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.cardsapplication.controller.GameSettingsController">
     <children>
         <ButtonBar layoutX="368.0" layoutY="76.0" prefHeight="40.0" prefWidth="8.0" />
-        <Button fx:id="startGameButton" layoutX="276.0" layoutY="324.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="148.0" text="Start" textAlignment="CENTER" />
-      <Label layoutX="239.0" layoutY="40.0" text="Choose game mode" textFill="#faf2f2">
+        <Button fx:id="startGameButton" layoutX="276.0" layoutY="324.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="148.0" stylesheets="@assets/buttonStyle.css" text="Start" textAlignment="CENTER">
          <font>
-            <Font size="25.0" />
+            <Font size="18.0" />
+         </font></Button>
+      <Label layoutX="247.0" layoutY="48.0" text="Choose game mode" textFill="#faf2f2">
+         <font>
+            <Font name="Berlin Sans FB" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="164.0" text="Choose card collection" textFill="#f7f7f7">
+      <Label layoutX="236.0" layoutY="164.0" text="Choose card collection" textFill="#f7f7f7">
          <font>
-            <Font size="25.0" />
+            <Font name="Berlin Sans FB" size="25.0" />
          </font>
       </Label>
       <ImageView fx:id="returnButton" fitHeight="34.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

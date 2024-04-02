@@ -76,7 +76,6 @@ public class CardCreationController {
         chooseFileFront.setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Select file");
-
             FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
                     "Media Files", "*.jpg", "*.jpeg", "*.png");
             fileChooser.getExtensionFilters().add(extFilter);
